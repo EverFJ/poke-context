@@ -5,7 +5,7 @@ export default function Navbar() {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-dark">
-        <a className="navbar-brand text-white" href="#">
+        <a className="navbar-brand text-white ms-2" href="#">
           Poke-Context
         </a>
         <button
