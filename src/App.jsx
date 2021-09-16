@@ -3,11 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
-
-let user = {
-  isLogged: false,
-};
-export const UserContext = React.createContext(user.isLogged);
+import { UserContext } from "./context/userContext";
 
 export default function App() {
   const [isLogged, setIsLogged] = useState(false);
@@ -15,7 +11,7 @@ export default function App() {
     setIsLogged(!isLogged);
   };
   return (
-    <UserContext.Provider value={(isLogged, setAuth)}>
+    <UserContext.Provider value={{ isLogged, setAuth }}>
       <BrowserRouter>
         <Navbar />
         <Switch>

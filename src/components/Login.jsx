@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { UserContext } from "../App";
+import { UserContext } from "../context/userContext";
 
 export default function Login(props) {
   const { isLogged, setAuth } = useContext(UserContext);
@@ -12,11 +12,11 @@ export default function Login(props) {
   } = useForm();
 
   const onSubmit = (data) => {
-    UserContext.setAuth();
+    setAuth();
     console.log("errors", errors);
     console.log("data", data);
   };
-  console.log("isLogged : ", UserContext.isLogged);
+  console.log("isLogged : ", isLogged);
   return (
     <>
       <h1 className="text-center mt-2">Login</h1>
@@ -59,16 +59,13 @@ export default function Login(props) {
             )}
           </form>
           <ul className="list-group mt-4">
-            {errors.username && (
-              <li className="list-group-item text-danger">
-                {errors.username?.message}
-              </li>
-            )}
-            {errors.password && (
-              <li className="list-group-item text-danger">
-                {errors.password?.message}
-              </li>
-            )}
+            <li className="list-group-item text-danger">
+              {errors.username?.message}
+            </li>
+
+            <li className="list-group-item text-danger">
+              {errors.password?.message}
+            </li>
           </ul>
         </div>
       </div>

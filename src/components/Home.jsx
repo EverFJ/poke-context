@@ -1,12 +1,12 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import { UserContext } from "../App";
+import { UserContext } from "../context/userContext";
 
 export default function Home(props) {
   const [pokemon, setPokemon] = useState(null);
 
-  const { isLogged, setAuth } = useContext(UserContext);
+  const { isLogged } = useContext(UserContext);
 
   useEffect(() => {
     fetch("https://pokeapi.co/api/v2/pokemon/1")
